@@ -1,0 +1,198 @@
+/* Bootstrap Simplificado y Personalizado para COPAPA */
+
+/* Definición de colores principales */
+:root {
+    --beige: #EAE7DD;
+    --cafe: #99775C;
+    --cafe-claro: #ac8a6f;
+    --gris: #5B5B5B;
+    --blanco: #FFFFFF;
+    --negro: #000000;
+}
+
+/* Reset CSS */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos globales */
+body {
+    background-color: var(--beige);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Contenedor fluido */
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Encabezado */
+header {
+    background-color: var(--cafe);
+    color: var(--blanco);
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header a {
+    color: var(--blanco);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+header a:hover,
+header a:focus {
+    text-decoration: underline;
+}
+
+/* Navegación */
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: var(--cafe);
+    padding: 0.5rem 0;
+}
+
+.navbar a {
+    color: var(--blanco);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+    background-color: var(--cafe-claro);
+    border-radius: 5px;
+}
+
+/* Diseño de columnas */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col {
+    flex: 1;
+    padding: 0 15px;
+    margin-bottom: 1rem;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: var(--blanco);
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--cafe);
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: var(--cafe-claro);
+}
+
+/* Formularios */
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--gris);
+    background-color: var(--blanco);
+    border: 2px solid var(--cafe);
+    border-radius: 5px;
+}
+
+.form-control:focus {
+    border-color: var(--cafe-claro);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
+}
+
+/* Tablas */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    border: 1px solid var(--cafe);
+    text-align: left;
+}
+
+.table th {
+    background-color: var(--cafe);
+    color: var(--blanco);
+}
+
+.table td {
+    background-color: var(--blanco);
+}
+
+/* Tarjetas */
+.card {
+    background-color: var(--blanco);
+    border: 1px solid var(--cafe);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--gris);
+    color: var(--blanco);
+    padding: 1rem 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: var(--blanco);
+    text-decoration: none;
+}
+
+footer a:hover,
+footer a:focus {
+    text-decoration: underline;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .row {
+        margin: 0;
+    }
+}
