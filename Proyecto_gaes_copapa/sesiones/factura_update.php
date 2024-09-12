@@ -1,5 +1,5 @@
 <?php
-require ('config/db.php'); // Asegúrate de que la ruta sea correcta
+require ('../config/db.php'); // Asegúrate de que la ruta sea correcta
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener y sanitizar los datos del formulario
@@ -61,18 +61,18 @@ $campesinos = $pdo->query("SELECT ID_Campesino, Nombre FROM campesino")->fetchAl
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar Factura</title>
-    <link rel="stylesheet" href="../css/styles.css"> <!-- Asegúrate de que la ruta sea correcta -->
+    <?php include "../includes/tailwind.php";?>
 </head>
-<body>
+<body class="bg-beige">
     <header class="header-main">
-        <h1>Actualizar Factura</h1>
+        <h1 class="text-center mb-5 text-gris font-bold text-3xl">Actualizar Factura</h1>
     </header>
-    <div class="contenido">
-        <div class="formularios">
+    <div class="w-full flex flex-col items-center py-10">
+        <div class="w-8/12 md:w-2/4 lg:w-1/3 xl:w-1/4">
             <form method="POST" action="factura_update.php">
                 <input type="hidden" name="id_factura" value="<?php echo htmlspecialchars($factura['ID_Factura']); ?>">
                 
-                <div class="contenedor-inputs">
+                <div class="flex justify-between mb-2">
                     <label for="id_cliente">Cliente:</label>
                     <select id="id_cliente" name="id_cliente" required>
                         <option value="">Seleccione un cliente</option>
@@ -84,7 +84,7 @@ $campesinos = $pdo->query("SELECT ID_Campesino, Nombre FROM campesino")->fetchAl
                     </select>
                 </div>
                 
-                <div class="contenedor-inputs">
+                <div class="flex justify-between mb-2">
                     <label for="id_campesino">Campesino:</label>
                     <select id="id_campesino" name="id_campesino" required>
                         <option value="">Seleccione un campesino</option>
@@ -96,38 +96,35 @@ $campesinos = $pdo->query("SELECT ID_Campesino, Nombre FROM campesino")->fetchAl
                     </select>
                 </div>
                 
-                <div class="contenedor-inputs">
+                <div class="flex justify-between mb-2">
                     <label for="fecha_factura">Fecha de la Factura:</label>
                     <input type="date" id="fecha_factura" name="fecha_factura" value="<?php echo htmlspecialchars($factura['Fecha_Factura']); ?>" required>
                 </div>
                 
-                <div class="contenedor-inputs">
+                <div class="flex justify-between mb-2">
                     <label for="valor_compra">Valor Compra:</label>
-                    <input type="number" step="0.01" id="valor_compra" name="valor_compra" value="<?php echo htmlspecialchars($factura['Valor_Compra']); ?>" required>
+                    <input class="w-60 h-8 rounded border-2 border-cafe" type="number" step="0.01" id="valor_compra" name="valor_compra" value="<?php echo htmlspecialchars($factura['Valor_Compra']); ?>" required>
                 </div>
                 
-                <div class="contenedor-inputs">
+                <div class="flex justify-between mb-2">
                     <label for="descuento_compra">Descuento Compra:</label>
-                    <input type="number" step="0.01" id="descuento_compra" name="descuento_compra" value="<?php echo htmlspecialchars($factura['Descuento_Compra']); ?>" required>
+                    <input class="w-60 h-8 rounded border-2 border-cafe" type="number" step="0.01" id="descuento_compra" name="descuento_compra" value="<?php echo htmlspecialchars($factura['Descuento_Compra']); ?>" required>
                 </div>
                 
-                <div class="contenedor-inputs">
+                <div class="flex justify-between mb-2">
                     <label for="iva_compra">IVA Compra:</label>
-                    <input type="number" step="0.01" id="iva_compra" name="iva_compra" value="<?php echo htmlspecialchars($factura['Iva_Compra']); ?>" required>
+                    <input class="w-60 h-8 rounded border-2 border-cafe" type="number" step="0.01" id="iva_compra" name="iva_compra" value="<?php echo htmlspecialchars($factura['Iva_Compra']); ?>" required>
                 </div>
                 
-                <div class="contenedor-inputs">
+                <div class="flex justify-between mb-2">
                     <label for="tipo_pago">Tipo de Pago:</label>
-                    <input type="text" id="tipo_pago" name="tipo_pago" value="<?php echo htmlspecialchars($factura['Tipopago_compra']); ?>" required>
+                    <input class="w-60 h-8 rounded border-2 border-cafe" type="text" id="tipo_pago" name="tipo_pago" value="<?php echo htmlspecialchars($factura['Tipopago_compra']); ?>" required>
                 </div>
                 
-                <button type="submit">Actualizar Factura</button>
+                <button class="text-xl mx-auto block h-12 bg-cafe text-white w-40 my-4 rounded-md hover:bg-cafeClaro hover:border-2 hover:border-cafe" type="submit">Actualizar Factura</button>
             </form>
         </div>
     </div>
-    <footer class="footer-main">
-        <p>&copy; 2024 COPAPA. Todos los derechos reservados.</p>
-    </footer>
 </body>
 </html>
 

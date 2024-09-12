@@ -1,36 +1,21 @@
-<?php
-// footer.php
-?>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Footer COPAPA</title>
-</head>
-<body>
-    <footer class="footer-main">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="images/logo-footer.png" alt="Logo COPAPA">
-            </div>
-            <div class="footer-info">
-                <p>&copy; <?php echo date("Y"); ?> COPAPA. Todos los derechos reservados.</p>
-                <ul class="footer-links">
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="about.php">Sobre Nosotros</a></li>
-                    <li><a href="contact.php">Contacto</a></li>
-                    <li><a href="privacy.php">Política de Privacidad</a></li>
-                </ul>
-            </div>
-            <div class="footer-social">
-                <a href="https://facebook.com/copapa" target="_blank"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                <a href="https://twitter.com/copapa" target="_blank"><img src="images/twitter-icon.png" alt="Twitter"></a>
-                <a href="https://instagram.com/copapa" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
-            </div>
+ <footer class="flex flex-col items-center">
+    <div>
+        <img class="w-36" src="/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/copapa.png" alt="Logo COPAPA">
+    </div>
+    <div class="flex flex-col items-center ">
+        <div class="flex flex-col items-center my-4 lg:flex-row">
+            <ul class="flex flex-col items-center gap-1 lg:flex-row lg:gap-4">
+                <li><a class="hover:text-cafe hover:font-bold" href="index.php">Inicio</a></li>
+                <li><a class="hover:text-cafe hover:font-bold" href="about.php">Sobre Nosotros</a></li>
+                <li><a class="hover:text-cafe hover:font-bold" href="contact.php">Contacto</a></li>
+                <li><a class="hover:text-cafe hover:font-bold" href="privacy.php">Política de Privacidad</a></li>
+            </ul>
         </div>
-    </footer>
-</body>
-</html>
+        <div class="flex justify-center gap-5">
+            <a href="#" target="_blank"><img class="w-20 h-20 lg:w-16 lg:h-16" src="/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/facebook.png" alt="Facebook"></a>
+            <a href="#" target="_blank"><img class="w-20 h-20 lg:w-16 lg:h-16" src="/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/x.png" alt="Twitter"></a>
+            <a href="#" target="_blank"><img class="w-20 h-20 lg:w-16 lg:h-16" src="/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/instagram.png" alt="Instagram"></a>
+        </div>
+        <p class="mt-4">&copy; <?php echo date("Y"); ?> COPAPA. Todos los derechos reservados.</p>
+    </div>
+</footer>

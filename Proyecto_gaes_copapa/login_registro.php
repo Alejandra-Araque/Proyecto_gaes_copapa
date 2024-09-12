@@ -64,36 +64,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registro'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login y Registro | COPAPA</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style_index.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <?php include "includes/tailwind.php"; ?>
 </head>
-<body>
-
+<body class="bg-beige">
     <!-- Contenedor Principal -->
-    <div class="contenido">
-        <div class="formularios">
-            <h2>Iniciar Sesión</h2>
+    <div class="w-full flex flex-col items-center py-10">
+        <div class="w-8/12 md:w-2/4 lg:w-1/3 xl:w-1/4">
+            <h2 class="text-center mb-5 text-gris font-bold text-3xl">Iniciar Sesión</h2>
             <?php if ($login_error): ?>
                 <div class="alert alert-danger"><?php echo $login_error; ?></div>
             <?php endif; ?>
             <form action="login_registro.php" method="post">
-                <div class="contenedor-inputs">
+                <div class="flex justify-between mb-2">
                     <label for="usuario">Usuario</label>
-                    <input type="text" id="usuario" name="usuario" required>
+                    <input class="w-60 h-8 rounded border-2 border-cafe" type="text" id="usuario" name="usuario" required>
                 </div>
-                <div class="contenedor-inputs">
+                <div class="flex justify-between mb-2">
                     <label for="password">Contraseña</label>
-                    <input type="password" id="password" name="password" required>
+                    <input class="w-60 h-8 rounded border-2 border-cafe" type="password" id="password" name="password" required>
                 </div>
-                <button type="submit" name="login">Iniciar Sesión</button>
+                <button class="text-xl mx-auto block h-12 bg-cafe text-white w-40 my-4 rounded-md hover:bg-cafeClaro hover:border-2 hover:border-cafe" type="submit" name="login">Iniciar Sesión</button>
             </form>
         </div>
 
         <hr>
 
-        <div class="formularios">
-            <h2>Registro</h2>
+        <div class="w-8/12 md:w-2/4 lg:w-1/3 xl:w-1/4">
+            <h2 class="text-center mb-5 text-gris font-bold text-3xl">Registro</h2>
             <?php if ($registro_error): ?>
                 <div class="alert alert-danger"><?php echo $registro_error; ?></div>
             <?php endif; ?>
@@ -101,19 +98,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registro'])) {
                 <div class="alert alert-success"><?php echo $registro_success; ?></div>
             <?php endif; ?>
             <form action="login_registro.php" method="post">
-                <div class="contenedor-inputs">
+                <div class="flex justify-between mb-2">
                     <label for="usuario">Usuario</label>
-                    <input type="text" id="usuario" name="usuario" required>
+                    <input class="w-60 h-8 rounded border-2 border-cafe" type="text" id="usuario" name="usuario" required>
                 </div>
-                <div class="contenedor-inputs">
+                <div class="flex justify-between mb-2">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <input class="w-60 h-8 rounded border-2 border-cafe" type="email" id="email" name="email" required>
                 </div>
-                <div class="contenedor-inputs">
+                <div class="flex justify-between mb-2">
                     <label for="password">Contraseña</label>
-                    <input type="password" id="password" name="password" required>
+                    <input class="w-60 h-8 rounded border-2 border-cafe" type="password" id="password" name="password" required>
                 </div>
-                <button type="submit" name="registro">Registrarse</button>
+                <button class="text-xl mx-auto block h-12 bg-cafe text-white w-40 my-4 rounded-md hover:bg-cafeClaro hover:border-2 hover:border-cafe" type="submit" name="registro">Registrarse</button>
             </form>
         </div>
     </div>
@@ -121,7 +118,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registro'])) {
     <!-- Incluye el footer -->
     <?php include 'includes/footer.php'; ?>
 
-    <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
 </body>
 </html>

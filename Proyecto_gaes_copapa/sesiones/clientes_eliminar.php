@@ -1,7 +1,6 @@
 <?php
 // Incluir el archivo de conexión principal
-include('conexion.php'); 
-
+include('../config/db.php'); 
 // Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener y sanitizar el ID del cliente
@@ -41,7 +40,7 @@ $clientes = $conn->query("SELECT id, nombre FROM clientes")->fetch_all(MYSQLI_AS
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eliminar Cliente</title>
-    <link rel="stylesheet" href="styles.css">
+    <?php include "../includes/tailwind.php" ?>
 </head>
 <body>
     <div class="formularios">

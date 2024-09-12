@@ -1,6 +1,6 @@
 <?php
 // Incluir el archivo de conexión principal
-include('conexion.php'); // Asegúrate de que la ruta sea correcta
+include('../config/db.php'); // Asegúrate de que la ruta sea correcta
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener y sanitizar los datos del formulario
@@ -39,38 +39,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar Cliente</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Asegúrate de que la ruta sea correcta -->
+    <?php include "../includes/tailwind.php" ?>
 </head>
-<body>
+<body class="bg-beige">
     <header class="header-main">
-        <h1>Actualizar Cliente</h1>
+        <h1 class="mt-8 text-center mb-5 text-gris font-bold text-3xl">Actualizar Cliente</h1>
     </header>
-    <div class="contenido">
-        <div class="formularios">
+    <div class="w-full flex flex-col items-center py-10">
+        <div class="w-8/12 md:w-2/4 lg:w-1/3 xl:w-1/4">
             <form method="POST" action="cliente_update.php">
-                <div class="contenedor-inputs">
+                <div class="flex justify-between mb-2">
                     <label for="id">ID del Cliente:</label>
-                    <input type="number" id="id" name="id" required>
+                    <input class="w-60 h-8 rounded border-2 border-cafe" type="number" id="id" name="id" required>
                 </div>
-                <div class="contenedor-inputs">
+                <div class="flex justify-between mb-2">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
+                    <input class="w-60 h-8 rounded border-2 border-cafe" type="text" id="nombre" name="nombre" required>
                 </div>
-                <div class="contenedor-inputs">
+                <div class="flex justify-between mb-2">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input class="w-60 h-8 rounded border-2 border-cafe" type="email" id="email" name="email" required>
                 </div>
-                <div class="contenedor-inputs">
+                <div class="flex justify-between mb-2">
                     <label for="telefono">Teléfono:</label>
-                    <input type="text" id="telefono" name="telefono" required>
+                    <input class="w-60 h-8 rounded border-2 border-cafe" type="text" id="telefono" name="telefono" required>
                 </div>
-                <button type="submit">Actualizar</button>
+                <button class="text-xl mx-auto block h-12 bg-cafe text-white w-40 my-4 rounded-md hover:bg-cafeClaro hover:border-2 hover:border-cafe" type="submit">Actualizar</button>
             </form>
         </div>
     </div>
-    <footer class="footer-main">
-        <p>&copy; 2024 COPAPA. Todos los derechos reservados.</p>
-    </footer>
 </body>
 </html>
 

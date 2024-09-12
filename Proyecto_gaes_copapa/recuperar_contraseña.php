@@ -3,7 +3,7 @@
 session_start();
 
 // Incluir archivo de conexión a la base de datos
-include 'conexion.php';
+include 'config/db.php';
 
 // Variable para almacenar mensajes de error o éxito
 $msg = '';
@@ -48,34 +48,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperar Contraseña | COPAPA</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style_index.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <?php include "includes/tailwind.php"; ?>
 </head>
-<body>
+<body class="bg-beige">
 
     <!-- Contenedor Principal -->
-    <div class="contenido">
-        <div class="formularios">
-            <h2>Recuperar Contraseña</h2>
+    <div class="w-full flex flex-col items-center py-10">
+        <div class="w-8/12 md:w-2/4 lg:w-1/3 xl:w-1/4">
+            <h2 class="text-center mb-5 text-gris font-bold text-3xl">Recuperar Contraseña</h2>
             <?php if ($msg): ?>
                 <div class="alert alert-info"><?php echo $msg; ?></div>
             <?php endif; ?>
             <form action="recuperar_contraseña.php" method="post">
-                <div class="contenedor-inputs">
+                <div class="flex justify-between mb-2">
                     <label for="email">Correo Electrónico</label>
-                    <input type="email" id="email" name="email" required>
+                    <input class="w-60 h-8 rounded border-2 border-cafe" type="email" id="email" name="email" required>
                 </div>
-                <button type="submit">Enviar Enlace de Recuperación</button>
+                <button class="text-xl mx-auto block h-16 bg-cafe text-white w-60 my-4 rounded-md hover:bg-cafeClaro hover:border-2 hover:border-cafe" type="submit">Enviar Enlace de Recuperación</button>
             </form>
-            <p><a href="login.php">Volver al inicio de sesión</a>.</p>
+            <p class="text-center"><a class="hover:text-cafe hover:font-bold" href="login.php">Volver al inicio de sesión</a>.</p>
         </div>
     </div>
 
     <!-- Incluye el footer -->
     <?php include 'includes/footer.php'; ?>
-
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-3.4.1.min.js"></script>
 </body>
 </html>

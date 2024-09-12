@@ -1,43 +1,26 @@
-<?php
-// header.php
-?>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>COPAPA</title>
-</head>
-<body>
-    <header class="header-main">
-        <div class="header-container">
-            <div class="header-logo">
-                <a href="index.php">
-                    <img src="images/logo.png" alt="Logo COPAPA">
-                </a>
-            </div>
-            <nav class="header-nav">
-                <ul>
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="about.php">Sobre Nosotros</a></li>
-                    <li><a href="services.php">Servicios</a></li>
-                    <li><a href="contact.php">Contacto</a></li>
-                    <li><a href="login.php">Iniciar Sesión</a></li>
-                </ul>
-            </nav>
-            <div class="header-login">
-                <?php
-                session_start();
-                if (isset($_SESSION['usuario'])) {
-                    echo '<a href="logout.php">Cerrar Sesión</a>';
-                } else {
-                    echo '<a href="login.php">Iniciar Sesión</a>';
-                }
-                ?>
-            </div>
+<header class="flex flex-col items-center">
+    <div class="flex flex-col items-center my-4 lg:flex-row">
+        <a href="/Proyecto_gaes_copapa/Proyecto_gaes_copapa/publico/index.php">
+            <img src="/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/copapa.png" alt="Logo COPAPA">
+        </a>
+        <nav class="header-nav">
+            <ul class="flex flex-col items-center gap-1 lg:flex-row lg:gap-4">
+                <li><a class="hover:text-cafe hover:font-bold" href="index.php">Inicio</a></li>
+                <li><a class="hover:text-cafe hover:font-bold" href="about.php">Sobre Nosotros</a></li>
+                <li><a class="hover:text-cafe hover:font-bold" href="services.php">Servicios</a></li>
+                <li><a class="hover:text-cafe hover:font-bold" href="contact.php">Contacto</a></li>
+                <li><a class="hover:text-cafe hover:font-bold" href="login.php">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+        <div class="header-login">
+            <?php
+            session_start();
+            if (isset($_SESSION['usuario'])) {
+                echo '<a href="logout.php">Cerrar Sesión</a>';
+            } else {
+                echo '<a href="login.php">Iniciar Sesión</a>';
+            }
+            ?>
         </div>
-    </header>
-</body>
-</html>
+    </div>
+</header>

@@ -3,7 +3,7 @@
 $host = "localhost";       // Dirección del servidor de base de datos
 $dbname = "copapa";        // Nombre de la base de datos
 $username = "root";        // Nombre de usuario de la base de datos
-$password = "";            // Contraseña del usuario de la base de datos (cambiar según sea necesario)
+$password = "root";            // Contraseña del usuario de la base de datos (cambiar según sea necesario)
 
 try {
     // Crear una nueva instancia de PDO para la conexión

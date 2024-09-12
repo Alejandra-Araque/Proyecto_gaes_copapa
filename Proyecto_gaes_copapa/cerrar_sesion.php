@@ -27,13 +27,13 @@ if (isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COPAPA - Cerrar Sesión</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <?php include "includes/tailwind.php"; ?>
 </head>
-<body>
-    <div class="contenedor">
-        <h1>Has cerrado sesión</h1>
-        <p>Tu sesión se ha cerrado correctamente. Gracias por visitarnos.</p>
-        <a href="../index.php" class="btn">Volver al inicio</a>
+<body class="bg-beige">
+    <div class="flex flex-col items-center">
+        <h1 class="text-gris font-bold text-3xl mt-8">Has cerrado sesión</h1>
+        <p class="text-xl mt-2">Tu sesión se ha cerrado correctamente. Gracias por visitarnos.</p>
+        <a class="hover:text-cafe hover:font-bold text-xl" href="../index.php" >Volver al inicio</a>
     </div>
 </body>
 </html>
