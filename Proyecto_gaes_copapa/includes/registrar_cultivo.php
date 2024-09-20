@@ -1,6 +1,6 @@
 <?php
 // Incluir archivo de conexión a la base de datos
-include('conexion.php');
+include('config/db.php');
 
 // Procesar el formulario al enviar
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
