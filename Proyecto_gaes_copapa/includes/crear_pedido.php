@@ -1,6 +1,6 @@
 <?php
 // Incluir archivo de conexión a la base de datos
-include('config/db.php');
+include('../config/db.php');
 
 // Procesar el formulario al enviar
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Pedido - COPAPA</title>
 
-    <?php includes('tailwind.php'); ?>
+    <?php include('tailwind.php'); ?>
 
     <style>
         body {

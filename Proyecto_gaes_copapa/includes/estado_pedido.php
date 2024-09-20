@@ -1,17 +1,21 @@
 <?php
 // Incluir archivo de conexión a la base de datos
-include('config/db.php');
+include('../config/db.php');
 
 try {
     // Preparar y ejecutar la consulta para obtener los pedidos
-    $sql = "SELECT * FROM pedidos";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
+    $sql = "SELECT * FROM pedido";
+    $resultado = $conexion->query($sql);
 
-    // Obtener los resultados
-    $pedidos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // Verificar si se obtuvieron resultados
+    if ($resultado) {
+        // Obtener los resultados como un array asociativo
+        $pedidos = $resultado->fetch_all(MYSQLI_ASSOC);
+    } else {
+        $pedidos = []; // No hay resultados
+    }
 
-} catch (PDOException $e) {
+} catch (mysqli_sql_exception $e) {
     // Manejar errores de conexión o consulta
     echo "<p style='color: red;'>Error al consultar los pedidos: " . htmlspecialchars($e->getMessage()) . "</p>";
 }
@@ -25,7 +29,7 @@ try {
     <title>Estado del Pedido - COPAPA</title>
 
 
-    <?php includes('tailwind.php'); ?>
+    <?php include('tailwind.php'); ?>
 
     <style>
         /* Fondo de pantalla personalizado */
@@ -48,10 +52,10 @@ try {
                 <thead class="bg-cafe text-white">
                     <tr>
                         <th class="py-3 px-4 border border-gris">ID Pedido</th>
-                        <th class="py-3 px-4 border border-gris">Producto</th>
-                        <th class="py-3 px-4 border border-gris">Cantidad</th>
-                        <th class="py-3 px-4 border border-gris">Dirección de Envío</th>
+                        <th class="py-3 px-4 border border-gris">Fecha de Pedido</th>
+                        <th class="py-3 px-4 border border-gris">ID Cliente</th>
                         <th class="py-3 px-4 border border-gris">Estado</th>
+                        <th class="py-3 px-4 border border-gris">Total</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -60,11 +64,11 @@ try {
                     // Asegúrate de incluir la conexión y manejar errores adecuadamente.
                     while ($fila = mysqli_fetch_assoc($resultado)) {
                         echo "<tr class='border border-gris'>";
-                        echo "<td class='py-2 px-4'>" . htmlspecialchars($fila['id']) . "</td>";
-                        echo "<td class='py-2 px-4'>" . htmlspecialchars($fila['producto']) . "</td>";
-                        echo "<td class='py-2 px-4'>" . htmlspecialchars($fila['cantidad']) . "</td>";
-                        echo "<td class='py-2 px-4'>" . htmlspecialchars($fila['direccion_envio']) . "</td>";
-                        echo "<td class='py-2 px-4'>" . htmlspecialchars($fila['estado']) . "</td>";
+                        echo "<td class='py-2 px-4'>" . htmlspecialchars($fila['Pedido_Id']) . "</td>";
+                        echo "<td class='py-2 px-4'>" . htmlspecialchars($fila['FechaPedido_ped']) . "</td>";
+                        echo "<td class='py-2 px-4'>" . htmlspecialchars($fila['Cliente_Id']) . "</td>";
+                        echo "<td class='py-2 px-4'>" . htmlspecialchars($fila['Estado']) . "</td>";
+                        echo "<td class='py-2 px-4'>" . htmlspecialchars($fila['Total']) . "</td>";
                         echo "</tr>";
                     }
                     ?>

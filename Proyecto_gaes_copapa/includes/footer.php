@@ -10,13 +10,13 @@
         </div> -->
         <div class="footer-social">
             <a class="social-icon" href="#" target="_blank">
-                <img src="/copapa/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/facebook.png" alt="Facebook">
+                <img src="/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/facebook.png" alt="Facebook">
             </a>
             <a class="social-icon" href="#" target="_blank">
-                <img src="/copapa/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/x.png" alt="Twitter">
+                <img src="/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/x.png" alt="Twitter">
             </a>
             <a class="social-icon" href="#" target="_blank">
-                <img src="/copapa/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/instagram.png" alt="Instagram">
+                <img src="/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/instagram.png" alt="Instagram">
             </a>
         </div>
         <a class="nav-link" href="privacy.php">Política de Privacidad</a>

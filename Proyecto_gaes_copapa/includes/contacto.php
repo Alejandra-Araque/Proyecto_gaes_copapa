@@ -1,4 +1,4 @@
-<?php includes('tailwind.php'); ?>
+<?php include('tailwind.php'); ?>
 
 <!DOCTYPE html>
 <html lang="es">

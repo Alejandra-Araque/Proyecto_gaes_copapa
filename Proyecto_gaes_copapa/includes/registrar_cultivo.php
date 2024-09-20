@@ -1,6 +1,6 @@
 <?php
 // Incluir archivo de conexión a la base de datos
-include('config/db.php');
+include('../config/db.php');
 
 // Procesar el formulario al enviar
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tipo = $_POST['tipo'];
     $fecha_plantacion = $_POST['fecha_plantacion'];
 
-    $sql = "INSERT INTO cultivos (nombre, tipo, fecha_plantacion) VALUES ('$nombre', '$tipo', '$fecha_plantacion')";
+    $sql = "INSERT INTO cultivo (nombre, VariedadPapa_cul, FechaSiembra_cul) VALUES ('$nombre', '$tipo', '$fecha_plantacion')";
 
     if (mysqli_query($conexion, $sql)) {
         echo "Cultivo registrado correctamente.";
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Cultivo - COPAPA</title>
 
-    <?php includes('tailwind.php'); ?>
+    <?php include('tailwind.php'); ?>
     
     <style>
         body {

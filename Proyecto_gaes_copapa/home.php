@@ -8,8 +8,6 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
-// Incluir el menú lateral
-include('menu.php');
 ?>
 
 <!DOCTYPE html>
@@ -58,9 +56,7 @@ include('menu.php');
     </div> <!-- Fin del contenedor principal -->
 
     <!-- Pie de página -->
-    <footer class="footer">
-        <?php include 'includes/footer.php'; ?>
-    </footer>
+    <?php include 'includes/footer.php'; ?>
 
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
