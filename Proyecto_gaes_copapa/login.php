@@ -4,12 +4,12 @@ session_start();
 
 // Verificar si el usuario ya ha iniciado sesión
 if (isset($_SESSION['usuario'])) {
-    header('Location: index.php');
+    header('Location: home.php');
     exit();
 }
 
 // Incluir archivo de conexión a la base de datos
-include ('config/db.php');
+include('config/db.php');
 
 // Variable para almacenar mensajes de error
 $login_error = '';
@@ -19,23 +19,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $usuario = $_POST['usuario'];
     $password = $_POST['password'];
 
-    // Verificar las credenciales en la base de datos
-    $query = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
-    $result = $conexion->query($query);
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        // Verificar la contraseña
-        if (password_verify($password, $row['password'])) {
-            // Iniciar sesión
-            $_SESSION['usuario'] = $usuario;
-            header('Location: index.php');
-            exit();
+    // Preparar la consulta para prevenir inyecciones SQL usando PDO
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE numidentificacion = ?");
+        $stmt->bindParam(1, $usuario, PDO::PARAM_STR);
+        $stmt->execute();
+        
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            // Verificar la contraseña
+            if (password_verify($password, $row['password'])) {
+                // Iniciar sesión
+                $_SESSION['usuario'] = $usuario;
+                header('Location: home.php');
+                exit();
+            } else {
+                $login_error = 'Usuario o contraseña incorrectos. Verifica tus datos.';
+            }
         } else {
-            $login_error = 'Contraseña incorrecta. Inténtalo de nuevo.';
+            $login_error = 'Usuario o contraseña incorrectos. Verifica tus datos.';
         }
-    } else {
-        $login_error = 'El usuario no existe. Verifica tus datos.';
+    } catch (PDOException $e) {
+        error_log("Error al consultar la base de datos: " . $e->getMessage());
+        $login_error = 'Error al consultar la base de datos. Por favor, inténtalo más tarde.';
     }
 }
 ?>
@@ -46,28 +52,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión | COPAPA</title>
-    <?php include "includes/tailwind.php";?>
+    <?php include "includes/tailwind.php"; ?>
+    <link rel="stylesheet" href="css/footer.css">
+    <style>
+        body {
+            background-image: url('/copapa/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/banner/9.png'); /* Cambia esta ruta por la de tu imagen */
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
-<body class="bg-beige">
+<body>
     <!-- Contenedor Principal -->
-    <div class="w-full flex justify-center py-10">
-        <div class="w-8/12 md:w-2/4 lg:w-1/3 xl:w-1/4" >
+    <div class="flex items-center justify-center min-h-screen bg-black bg-opacity-50">
+        <div class="bg-white rounded-lg shadow-lg p-8 md:w-96 w-11/12">
             <h2 class="text-center mb-5 text-gris font-bold text-3xl">Iniciar Sesión</h2>
             <?php if ($login_error): ?>
-                <div class="alert alert-danger"><?php echo $login_error; ?></div>
+                <div class="bg-red-500 text-white p-3 rounded mb-4 text-center">
+                    <?php echo htmlspecialchars($login_error); ?>
+                </div>
             <?php endif; ?>
             <form action="login.php" method="post">
-                <div class="flex justify-between mb-2">
-                    <label for="usuario">Usuario</label>
-                    <input class="w-60 h-8 rounded border-2 border-cafe" type="text" id="usuario" name="usuario" required>
+                <div class="mb-4">
+                    <label for="usuario" class="block mb-1">N° Identificación</label>
+                    <input class="w-full h-10 rounded border-2 border-cafe p-2" type="text" id="usuario" name="usuario" required>
                 </div>
-                <div class="flex justify-between mb-2">
-                    <label for="password">Contraseña</label>
-                    <input class="w-60 h-8 rounded border-2 border-cafe" type="password" id="password" name="password" required>
+                <div class="mb-4">
+                    <label for="password" class="block mb-1">Contraseña</label>
+                    <input class="w-full h-10 rounded border-2 border-cafe p-2" type="password" id="password" name="password" required>
                 </div>
-                <button class="text-xl mx-auto block h-12 bg-cafe text-white w-40 my-4 rounded-md hover:bg-cafeClaro hover:border-2 hover:border-cafe" type="submit">Iniciar Sesión</button>
+                <button class="w-full h-12 bg-cafe text-white rounded-md hover:bg-cafeClaro transition duration-300" type="submit">Iniciar Sesión</button>
             </form>
-            <p class="text-center">¿No tienes una cuenta? <a class="text-cafe font-bold" href="login_registro.php">Regístrate aquí</a>.</p>
+            <p class="text-center mt-4">¿No tienes una cuenta? <a class="text-cafe font-bold" href="login_registro.php">Regístrate aquí</a>.</p>
         </div>
     </div>
 

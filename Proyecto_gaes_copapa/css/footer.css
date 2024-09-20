@@ -1,0 +1,64 @@
+/* Estilos del Footer */
+.footer {
+    background-color: #f8f9fa; /* Color de fondo suave */
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo .logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.footer-nav {
+    margin-bottom: 20px;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: normal;
+    transition: color 0.3s, font-weight 0.3s;
+}
+
+.nav-link:hover {
+    color: #5a3e1b; /* Color personalizado para hover */
+    font-weight: bold;
+}
+
+.footer-social {
+    margin-bottom: 20px;
+}
+
+.social-icon {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.social-icon img {
+    width: 80px; /* Tamaño máximo */
+    height: 80px; /* Tamaño máximo */
+    max-width: 100px; /* Tamaño máximo */
+    max-height: 100px; /* Tamaño máximo */
+    object-fit: contain; /* Asegura que la imagen mantenga su proporción */
+}
+
+.footer-text {
+    font-size: 14px;
+    color: #333;
+}
