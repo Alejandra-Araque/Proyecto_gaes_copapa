@@ -12,7 +12,7 @@
             <li><a href="includes/estado_pedido.php" class="menu-item">Estado del Pedido</a></li>
             <li><a href="includes/about.php" class="menu-item">Sobre Nosotros</a></li>
             <li><a href="includes/contacto.php" class="menu-item">Contacto</a></li>
-            <li><a href="includes/cerrar_sesion.php" class="menu-item">Cerrar Sesión</a></li>
+            <li><a href="cerrar_sesion.php" class="menu-item">Cerrar Sesión</a></li>
             
         </ul>
     </nav>
