@@ -27,35 +27,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registro'])) {
     $tipoUsuario = $_POST['tipoUsuario'];
 
     // Verificar si el número de identificación ya existe
-    $query = "SELECT * FROM usuarios WHERE numidentificacion = :numidentificacion";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':numidentificacion', $numidentificacion);
+    $query = "SELECT * FROM usuarios WHERE numidentificacion = ?";
+    $stmt = $conexion->prepare($query);
+    $stmt->bind_param('s', $numidentificacion); // 's' indica que es una cadena
     $stmt->execute();
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $result = $stmt->get_result();
 
-    if ($result) {
+    if ($result->num_rows > 0) {
         $registro_error = 'El número de identificación ya está registrado.';
     } else {
         // Insertar nuevo usuario en la base de datos
         $query = "INSERT INTO usuarios (tipoidentificacion, numidentificacion, nombres, apellidos, correo, numeroCelular, direccion, password, tipoUsuario, fecharegistro) 
-                  VALUES (:tipoidentificacion, :numidentificacion, :nombres, :apellidos, :correo, :numeroCelular, :direccion, :password, :tipoUsuario, NOW())";
-        $stmt = $pdo->prepare($query);
-        $stmt->bindParam(':tipoidentificacion', $tipoidentificacion);
-        $stmt->bindParam(':numidentificacion', $numidentificacion);
-        $stmt->bindParam(':nombres', $nombres);
-        $stmt->bindParam(':apellidos', $apellidos);
-        $stmt->bindParam(':correo', $correo);
-        $stmt->bindParam(':numeroCelular', $numeroCelular);
-        $stmt->bindParam(':direccion', $direccion);
-        $stmt->bindParam(':password', $password);
-        $stmt->bindParam(':tipoUsuario', $tipoUsuario);
-        
+                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+        $stmt = $conexion->prepare($query);
+        $stmt->bind_param('sssssssss', $tipoidentificacion, $numidentificacion, $nombres, $apellidos, $correo, $numeroCelular, $direccion, $password, $tipoUsuario);
+
         if ($stmt->execute()) {
             $registro_success = 'Registro exitoso. ¡Ahora puedes iniciar sesión!';
         } else {
             $registro_error = 'Hubo un problema al registrarte. Inténtalo más tarde.';
         }
     }
+
+    $stmt->close();
 }
 ?>
 
@@ -89,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registro'])) {
             display: block;
         }
         body {
-            background-image: url('/copapa/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/banner/8.png'); /* Asegúrate de reemplazar la ruta con la ubicación real de tu imagen */
+            background-image: url('/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/banner/8.png'); /* Asegúrate de reemplazar la ruta con la ubicación real de tu imagen */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;

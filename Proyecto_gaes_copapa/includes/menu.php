@@ -7,7 +7,8 @@
     <!-- Menú lateral -->
     <nav class="menu">
         <ul class="menu-list">
-            <li><a href="includes/registrar_cultivo.php" class="menu-item">Registrar Cultivo</a></li>
+            <li><a href="includes/registrarCultivo.php" class="menu-item">Registrar Cultivo</a></li>
+            <li><a href="includes/VerCultivo.php" class="menu-item">Ver Cultivo</a></li>
             <li><a href="includes/crear_pedido.php" class="menu-item">Crear Pedido</a></li>
             <li><a href="includes/estado_pedido.php" class="menu-item">Estado del Pedido</a></li>
             <li><a href="includes/about.php" class="menu-item">Sobre Nosotros</a></li>

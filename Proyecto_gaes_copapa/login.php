@@ -19,30 +19,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $usuario = $_POST['usuario'];
     $password = $_POST['password'];
 
-    // Preparar la consulta para prevenir inyecciones SQL usando PDO
-    try {
-        $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE numidentificacion = ?");
-        $stmt->bindParam(1, $usuario, PDO::PARAM_STR);
-        $stmt->execute();
-        
-        if ($stmt->rowCount() > 0) {
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            // Verificar la contraseña
-            if (password_verify($password, $row['password'])) {
-                // Iniciar sesión
-                $_SESSION['usuario'] = $usuario;
-                header('Location: home.php');
-                exit();
-            } else {
-                $login_error = 'Usuario o contraseña incorrectos. Verifica tus datos.';
-            }
+    // Preparar la consulta para prevenir inyecciones SQL usando mysqli
+    $stmt = $conexion->prepare("SELECT * FROM usuarios WHERE numidentificacion = ?");
+    $stmt->bind_param('s', $usuario); // 's' indica que es una cadena
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        // Verificar la contraseña
+        if (password_verify($password, $row['password'])) {
+            // Iniciar sesión
+            $_SESSION['usuario'] = $usuario;
+            header('Location: home.php');
+            exit();
         } else {
             $login_error = 'Usuario o contraseña incorrectos. Verifica tus datos.';
         }
-    } catch (PDOException $e) {
-        error_log("Error al consultar la base de datos: " . $e->getMessage());
-        $login_error = 'Error al consultar la base de datos. Por favor, inténtalo más tarde.';
+    } else {
+        $login_error = 'Usuario o contraseña incorrectos. Verifica tus datos.';
     }
+
+    $stmt->close();
 }
 ?>
 
