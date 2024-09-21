@@ -1,7 +1,7 @@
 <div class="sidebar">
     <!-- Logo en la parte superior -->
     <div class="logo-container">
-        <img class="logo" src="/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/copapa.png" alt="Logo COPAPA">
+        <img class="logo" src="img/copapa.png" alt="Logo COPAPA">
     </div>
 
     <!-- Menú lateral -->
