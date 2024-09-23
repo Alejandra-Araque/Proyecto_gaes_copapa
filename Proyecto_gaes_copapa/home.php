@@ -50,48 +50,13 @@ if (!isset($_SESSION['usuario'])) {
                 
             </header>
    <div class="slider">
-            <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        .slider {
-            width: 100%;
-            max-width: 800px;
-            height: 400px;
-            position: relative;
-            overflow: hidden;
-            margin: 20px auto;
-        }
-        .slides {
-            display: flex;
-            width: 500%;
-            height: 100%;
-            animation: slideAnimation 15s infinite;
-        }
-        .slides img {
-            width: 100%;
-            height: 100%;
-        }
-        @keyframes slideAnimation {
-            0% { margin-left: 0; }
-            20% { margin-left: 0; }
-            25% { margin-left: -100%; }
-            45% { margin-left: -100%; }
-            50% { margin-left: -200%; }
-            70% { margin-left: -200%; }
-            75% { margin-left: -300%; }
-            95% { margin-left: -300%; }
-            100% { margin-left: 0; }
+               <style>
+        body {
+            background-image: url('/copapa/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/banner/9.png'); /* Cambia esta ruta por la de tu imagen */
+            background-size: cover;
+            background-position: center;
         }
     </style>
-    <div class="slides">
-        <img src="img/Agricultor.jpg" alt="Agricultor">
-        <img src="img/20230707_070557.jpg" alt="Cultivos">
-        <img src="img/Papa.jpg" alt="Cosecha">
-        <img src="img/Papapastusa.jpg" alt="Pastusa">
-    </div>
 
         </div> <!-- Fin del contenido principal -->
     </div> <!-- Fin del contenedor principal -->
