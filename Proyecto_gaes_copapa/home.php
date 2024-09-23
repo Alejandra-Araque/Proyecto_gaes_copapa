@@ -7,9 +7,7 @@ if (!isset($_SESSION['usuario'])) {
     header('Location: login.php'); // Redirigir al usuario al formulario de inicio de sesión si no está autenticado
     exit();
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -30,23 +28,70 @@ if (!isset($_SESSION['usuario'])) {
     <div class="main-container">
         <!-- Menú lateral con logo incluido -->
         <?php include('includes/menu.php'); ?>
-
-
-
-
+ <!-- Contenido principal -->
+         <div class="content" id="page-content-wrapper">
+            <!-- Encabezado principal -->
+            <header class="header-main">
         <!-- Contenido principal -->
          <div class="content" id="page-content-wrapper">
             <!-- Encabezado principal -->
             <header class="header-main">
                 <div class="container">
                     <h1  style="margin-top: -20px;">Bienvenido a COPAPA</h1>
-                    <p>La mejor plataforma para gestionar compras de productos agrícolas.</p>
+                    <p>Está enfocado en la venta y compra de papa en el territorio colombiano, con el fin de apoyar la agronomía que hoy como siempre ha sido el pilar de nuestra sociedad. .</p>
+                <style>
+        h1 {
+            text-align: center;
+            color: #333; /* Cambia el color del texto si lo deseas */
+            font-size: 36px; /* Tamaño del texto */
+        }
+    </style>
                 </div>
+                
             </header>
-
-            <div class="carousel-item">
-            <img src="img/banner/4.png"  alt="Imagen 4">
-            </div>
+   <div class="slider">
+            <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .slider {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            margin: 20px auto;
+        }
+        .slides {
+            display: flex;
+            width: 500%;
+            height: 100%;
+            animation: slideAnimation 15s infinite;
+        }
+        .slides img {
+            width: 100%;
+            height: 100%;
+        }
+        @keyframes slideAnimation {
+            0% { margin-left: 0; }
+            20% { margin-left: 0; }
+            25% { margin-left: -100%; }
+            45% { margin-left: -100%; }
+            50% { margin-left: -200%; }
+            70% { margin-left: -200%; }
+            75% { margin-left: -300%; }
+            95% { margin-left: -300%; }
+            100% { margin-left: 0; }
+        }
+    </style>
+    <div class="slides">
+        <img src="img/Agricultor.jpg" alt="Agricultor">
+        <img src="img/20230707_070557.jpg" alt="Cultivos">
+        <img src="img/Papa.jpg" alt="Cosecha">
+        <img src="img/Papapastusa.jpg" alt="Pastusa">
+    </div>
 
         </div> <!-- Fin del contenido principal -->
     </div> <!-- Fin del contenedor principal -->
