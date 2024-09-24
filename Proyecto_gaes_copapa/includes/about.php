@@ -64,11 +64,5 @@
             <p class="text-sm text-gris mt-2">Agricultores locales que forman parte de la red COPAPA</p>
         </div>
 
-        <!-- Botón de más información -->
-        <div class="text-center mt-6">
-            <a href="informacion_adicional.html" class="text-white bg-cafe hover:bg-cafe-darker px-6 py-3 rounded-md font-semibold">Más información</a>
-        </div>
-    </div>
-
 </body>
 </html>
