@@ -2,33 +2,45 @@
 // Incluir archivo de conexión a la base de datos
 include('../config/db.php');
 
+session_start();
 // Procesar el formulario al enviar
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtener los datos del formulario y sanitizar
+    $fecha = date('d-m-Y');
+    $id_usuario = $_SESSION['usuario'];
     $producto = htmlspecialchars($_POST['producto']);
     $cantidad = intval($_POST['cantidad']);
     $direccion_envio = htmlspecialchars($_POST['direccion_envio']);
 
     try {
         // Preparar la consulta SQL para insertar el nuevo pedido
-        $sql = "INSERT INTO pedidos (producto, cantidad, direccion_envio) VALUES (:producto, :cantidad, :direccion_envio)";
-        $stmt = $pdo->prepare($sql);
+        $sql = "INSERT INTO pedido (producto, cantidad, direccion_envio, Cliente_Id, fecha) VALUES (?, ?, ?, ?, ?)";
 
-        // Ejecutar la consulta con parámetros seguros
-        $stmt->execute([
-            ':producto' => $producto,
-            ':cantidad' => $cantidad,
-            ':direccion_envio' => $direccion_envio
-        ]);
+        // Preparar la sentencia
+        if ($stmt = $conexion->prepare($sql)) {
+            // Vincular los parámetros
+            $stmt->bind_param("sisis", $producto, $cantidad, $direccion_envio, $id_usuario, $fecha);
 
-        echo "<p style='color: green;'>Pedido creado correctamente.</p>";
+            // Ejecutar la consulta
+            if ($stmt->execute()) {
+                echo "<p style='color: green;'>Pedido creado correctamente.</p>";
+            } else {
+                echo "<p style='color: red;'>Error al crear el pedido.</p>";
+            }
 
-    } catch (PDOException $e) {
+            // Cerrar la sentencia
+            $stmt->close();
+        } else {
+            echo "<p style='color: red;'>Error en la preparación de la consulta.</p>";
+        }
+    } catch (Exception $e) {
         echo "<p style='color: red;'>Error: " . htmlspecialchars($e->getMessage()) . "</p>";
     }
+
+    // Cerrar la conexión
+    $conexion->close();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -40,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <style>
         body {
-            background-image: url('https://github.com/Alejandra-Araque/Proyecto_gaes_copapa/blob/main/Proyecto_gaes_copapa/img/crear%20pedido.png');
+            background-image: url('/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/crear_pedido.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -69,6 +81,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div>
                 <label for="direccion_envio" class="block text-lg font-medium text-gris">Dirección de Envío</label>
                 <input type="text" id="direccion_envio" name="direccion_envio" required class="mt-1 block w-full px-4 py-2 border border-gris rounded-md shadow-sm focus:outline-none focus:ring focus:ring-verdeClaro focus:border-verde">
+            </div>
+
+            <div>
+                <input type="hidden" name="tipoDeUsuario" value="">
             </div>
 
             <div class="text-center">
