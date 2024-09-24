@@ -52,7 +52,7 @@ if (!isset($_SESSION['usuario'])) {
    <div class="slider">
                <style>
         body {
-            background-image: url('/copapa/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/banner/9.png'); /* Cambia esta ruta por la de tu imagen */
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR44IsNSG3H00Xa1PsEjIp_fuZa_NSE1v2Deg&s'); 
             background-size: cover;
             background-position: center;
         }
