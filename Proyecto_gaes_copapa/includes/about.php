@@ -9,7 +9,7 @@
     
     <style>
         body {
-            background-image: url('C:/xampp/htdocs/Proyecto_gaes_copapa/img/about.png');
+            background-image: url('https://cipotato.org/wp-content/uploads/2022/04/Blog-featured-image-nuevas-variedes-de-papa.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -60,7 +60,7 @@
 
         <!-- Imagen representativa -->
         <div class="seccion text-center">
-            <img src="C:\xampp\htdocs\Proyecto_gaes_copapa\img\estado de pedidos.png" alt="Agricultores de COPAPA" class="w-full max-w-lg mx-auto rounded-lg shadow-lg">
+            <img src="https://tuagro.com/wp-content/uploads/2022/02/Papac.jpg" alt="Agricultores de COPAPA" class="w-full max-w-lg mx-auto rounded-lg shadow-lg">
             <p class="text-sm text-gris mt-2">Agricultores locales que forman parte de la red COPAPA</p>
         </div>
 
