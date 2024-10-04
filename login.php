@@ -53,10 +53,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php include "includes/tailwind.php"; ?>
     <link rel="stylesheet" href="css/footer.css">
     <style>
+         <style>
+    /* Imagen de fondo completa */
         body {
-            background-image: url('/copapa/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/banner/9.png'); /* Cambia esta ruta por la de tu imagen */
+            background-image: url('img/CULTIVO.jpg'); 
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
+        }
+        /* Estilo para el logo */
+        .logo {
+            width: 90px; /* Ajusta el ancho según tus necesidades */
+            height: auto; /* Mantiene la proporción del logo */
+            margin: 1em auto 2em;
+            transition: transform 0.3s; /* Efecto de transición al pasar el ratón */
+            text-align: center; 
+            position: relative;
+
         }
     </style>
 </head>
@@ -64,6 +77,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!-- Contenedor Principal -->
     <div class="flex items-center justify-center min-h-screen bg-black bg-opacity-50">
         <div class="bg-white rounded-lg shadow-lg p-8 md:w-96 w-11/12">
+        <div class="login-container">
+          <img src="img/copapa.png" alt="Logo" class="logo">
             <h2 class="text-center mb-5 text-gris font-bold text-3xl">Iniciar Sesión</h2>
             <?php if ($login_error): ?>
                 <div class="bg-red-500 text-white p-3 rounded mb-4 text-center">
