@@ -52,10 +52,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Iniciar Sesión | COPAPA</title>
     <?php include "includes/tailwind.php"; ?>
     <style>
+         <style>
+    /* Imagen de fondo completa */
         body {
-            background-image: url('https://i0.wp.com/surtidoradeaves.com/wp-content/uploads/2020/04/cultivadores-de-papas.png?fit=750%2C500&ssl=1'); /* Imagen de fondo */
+            background-image: url('/copapa/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/banner/9.png'); /* Cambia esta ruta por la de tu imagen */
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
+        }
+        /* Estilo para el logo */
+        .logo {
+            width: 90px; /* Ajusta el ancho según tus necesidades */
+            height: auto; /* Mantiene la proporción del logo */
+            margin: 1em auto 2em;
+            transition: transform 0.3s; /* Efecto de transición al pasar el ratón */
+            text-align: center; 
+            position: relative;
+
         }
         
         /* Estilos para el contenedor del formulario */
@@ -81,8 +94,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <!-- Contenedor Principal -->
     <div class="flex items-center justify-center min-h-screen bg-black bg-opacity-50">
-        <div class="form-container rounded-lg shadow-lg p-8 md:w-96 w-11/12">
-            <h2 class="text-center mb-5 text-gray-700 font-bold text-3xl">Iniciar Sesión</h2>
+        <div class="bg-white rounded-lg shadow-lg p-8 md:w-96 w-11/12">
+            <h2 class="text-center mb-5 text-gris font-bold text-3xl">Iniciar Sesión</h2>
             <?php if ($login_error): ?>
                 <div class="bg-red-500 text-white p-3 rounded mb-4 text-center">
                     <?php echo htmlspecialchars($login_error); ?>

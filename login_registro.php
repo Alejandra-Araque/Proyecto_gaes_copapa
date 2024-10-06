@@ -153,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registro'])) {
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <!-- Contenedor Principal -->
-    <div class="w-full max-w-md form-container rounded-lg shadow-md p-6">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-md p-6">
         <h2 class="text-center mb-5 text-gray-700 font-bold text-3xl">Registro</h2>
         <form action="login_registro.php" method="post" onsubmit="return validarPassword()">
             <!-- Tipo Identificación -->
