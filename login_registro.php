@@ -83,10 +83,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registro'])) {
             display: block;
         }
         body {
-            background-image: url('/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/banner/8.png'); /* Asegúrate de reemplazar la ruta con la ubicación real de tu imagen */
+            background-image: url('https://serfi.pe/wp-content/uploads/2022/06/controlar-la-racha-en-tu-cultivo-de-papa.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+        }
+
+        /* Estilos para el formulario */
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente */
+            color: #333; /* Texto oscuro para contraste */
+        }
+        
+        input, select, button {
+            color: #333; /* Asegura que el texto dentro de los campos sea legible */
+        }
+
+        button {
+            background-color: #1e90ff;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #1c86ee;
         }
     </style>
     <script>
@@ -134,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registro'])) {
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <!-- Contenedor Principal -->
-    <div class="w-full max-w-md bg-white rounded-lg shadow-md p-6">
+    <div class="w-full max-w-md form-container rounded-lg shadow-md p-6">
         <h2 class="text-center mb-5 text-gray-700 font-bold text-3xl">Registro</h2>
         <form action="login_registro.php" method="post" onsubmit="return validarPassword()">
             <!-- Tipo Identificación -->
