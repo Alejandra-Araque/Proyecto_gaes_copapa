@@ -16,31 +16,37 @@ $login_error = '';
 
 // Proceso de inicio de sesión
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $usuario = $_POST['usuario'];
-    $password = $_POST['password'];
+    // Limpiar entradas del formulario
+    $usuario = htmlspecialchars(trim($_POST['usuario']));
+    $password = htmlspecialchars(trim($_POST['password']));
 
-    // Preparar la consulta para prevenir inyecciones SQL usando mysqli
-    $stmt = $conexion->prepare("SELECT * FROM usuarios WHERE numidentificacion = ?");
-    $stmt->bind_param('s', $usuario); // 's' indica que es una cadena
-    $stmt->execute();
-    $result = $stmt->get_result();
-    
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        // Verificar la contraseña
-        if (password_verify($password, $row['password'])) {
-            // Iniciar sesión
-            $_SESSION['usuario'] = $usuario;
-            header('Location: home.php');
-            exit();
+    // Verificar que la conexión a la base de datos es válida
+    if ($conexion) {
+        // Preparar la consulta para prevenir inyecciones SQL usando mysqli
+        $stmt = $conexion->prepare("SELECT * FROM usuarios WHERE numidentificacion = ?");
+        $stmt->bind_param('s', $usuario); // 's' indica que es una cadena
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            // Verificar la contraseña
+            if (password_verify($password, $row['password'])) {
+                // Iniciar sesión
+                $_SESSION['usuario'] = $usuario;
+                header('Location: home.php');
+                exit();
+            } else {
+                $login_error = 'Usuario o contraseña incorrectos. Verifica tus datos.';
+            }
         } else {
             $login_error = 'Usuario o contraseña incorrectos. Verifica tus datos.';
         }
-    } else {
-        $login_error = 'Usuario o contraseña incorrectos. Verifica tus datos.';
-    }
 
-    $stmt->close();
+        $stmt->close();
+    } else {
+        $login_error = 'Error de conexión a la base de datos. Intente más tarde.';
+    }
 }
 ?>
 
@@ -52,42 +58,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Iniciar Sesión | COPAPA</title>
     <?php include "includes/tailwind.php"; ?>
     <style>
-         <style>
-    /* Imagen de fondo completa */
+        /* Imagen de fondo completa */
         body {
-            background-image: url('/copapa/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/banner/9.png'); /* Cambia esta ruta por la de tu imagen */
+            background-image: url('/copapa/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/banner/9.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
+
         /* Estilo para el logo */
         .logo {
-            width: 90px; /* Ajusta el ancho según tus necesidades */
-            height: auto; /* Mantiene la proporción del logo */
+            width: 90px;
+            height: auto;
             margin: 1em auto 2em;
-            transition: transform 0.3s; /* Efecto de transición al pasar el ratón */
-            text-align: center; 
+            transition: transform 0.3s;
+            text-align: center;
             position: relative;
-
         }
         
         /* Estilos para el contenedor del formulario */
         .form-container {
-            background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente */
-            color: #333; /* Texto oscuro para mejor contraste */
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #333;
         }
 
         input {
-            color: #333; /* Texto dentro de los campos */
+            color: #333;
         }
 
         button {
-            background-color: #8B4513; /* Café oscuro para el botón */
+            background-color: #8B4513;
             color: white;
         }
 
         button:hover {
-            background-color: #A0522D; /* Café claro al pasar el mouse */
+            background-color: #A0522D;
         }
     </style>
 </head>
@@ -110,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <label for="password" class="block mb-1">Contraseña</label>
                     <input class="w-full h-10 rounded border-2 border-gray-400 p-2" type="password" id="password" name="password" required>
                 </div>
-                <button class="w-full h-12 rounded-md hover:bg-cafeClaro transition duration-300" type="submit">Iniciar Sesión</button>
+                <button class="w-full h-12 rounded-md transition duration-300" type="submit">Iniciar Sesión</button>
             </form>
             <p class="text-center mt-4">¿No tienes una cuenta? <a class="text-cafe font-bold" href="login_registro.php">Regístrate aquí</a>.</p>
         </div>
