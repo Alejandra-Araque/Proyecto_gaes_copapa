@@ -1,11 +1,18 @@
 <?php
 // Incluir el archivo de conexión principal
-require ('../config/db.php');
+require($_SERVER['DOCUMENT_ROOT'].'/Proyecto_gaes_copapa/config/db.php');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($pdo)) {
+    echo "Conexión a la base de datos establecida.";
+} else {
+    echo "Error: no se pudo establecer la conexión a la base de datos.";
+    exit;
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['crearfacura_id'])) {
     // Obtener y sanitizar los datos del formulario
     $idCliente = intval($_POST['id_cliente']);
-    $idCampesino = intval($_POST['id_campesino']);
+    $idCampesino = intval($_POST['id_agricultor']);
     $fechaFactura = $_POST['fecha_factura'];
     $valorCompra = floatval($_POST['valor_compra']);
     $descuentoCompra = floatval($_POST['descuento_compra']);
@@ -13,24 +20,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tipoPago = htmlspecialchars($_POST['tipo_pago']);
 
     // Preparar la consulta SQL
-    $sql = "INSERT INTO factura (ID_Cliente, ID_Campesino, Fecha_Factura, Valor_Compra, Descuento_Compra, Iva_Compra, Tipopago_compra)
+    $sql = "INSERT INTO crearfactura (ID_Cliente, ID_Campesino, Fecha_Factura, Valor_Compra, Descuento_Compra, Iva_Compra, Tipopago_compra)
             VALUES (?, ?, ?, ?, ?, ?, ?)";
 
     // Preparar la declaración
-    if ($stmt = $pdo->prepare($sql)) {
-        $stmt->bind_param("iisssss", $idCliente, $idCampesino, $fechaFactura, $valorCompra, $descuentoCompra, $ivaCompra, $tipoPago);
+    $stmt = $pdo->prepare($sql);
 
-        // Ejecutar la consulta
-        if ($stmt->execute()) {
-            echo "<p class='success-message'>Factura creada correctamente.</p>";
-        } else {
-            echo "<p class='error-message'>Error creando factura: " . $pdo->error . "</p>";
-        }
-
-        // Cerrar la declaración
-        $stmt->close();
+    // Ejecutar la consulta
+    if ($stmt->execute([$idCliente, $idCampesino, $fechaFactura, $valorCompra, $descuentoCompra, $ivaCompra, $tipoPago])) {
+        echo "<p class='success-message'>Factura creada correctamente.</p>";
     } else {
-        echo "<p class='error-message'>Error preparando la consulta: " . $pdo->error . "</p>";
+        echo "<p class='error-message'>Error creando factura: " . $pdo->errorInfo()[2] . "</p>";
     }
 }
 
@@ -44,7 +44,7 @@ $campesinos = $pdo->query("SELECT ID_Campesino, Nombre FROM campesino")->fetchAl
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Factura</title>
-    <?php include "../includes/tailwind.php";?>
+    <?php include "../includes/tailwind.php"; ?>
 </head>
 <body class="bg-beige">
     <header>

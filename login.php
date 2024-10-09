@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <style>
         /* Imagen de fondo completa */
         body {
-            background-image: url('/copapa/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/banner/9.png');
+            background-image: url('https://st.depositphotos.com/2435561/2929/i/450/depositphotos_29293975-stock-photo-corn-fields-and-rolling-hills.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -78,8 +78,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         /* Estilos para el contenedor del formulario */
         .form-container {
-            background-color: rgba(255, 255, 255, 0.7);
-            color: #333;
+            background-color: rgba(139, 69, 19, 0.7); /* Color café transparente */
+            color: white; /* Cambiar el color del texto a blanco */
+            padding: 2em; /* Ajustar el padding para que el contenido no toque los bordes */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para mejorar la apariencia */
+            font-weight: bold; /* Texto en negrita */
         }
 
         input {
@@ -99,8 +103,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <!-- Contenedor Principal -->
     <div class="flex items-center justify-center min-h-screen bg-black bg-opacity-50">
-        <div class="bg-white rounded-lg shadow-lg p-8 md:w-96 w-11/12">
-            <h2 class="text-center mb-5 text-gris font-bold text-3xl">Iniciar Sesión</h2>
+        <div class="form-container"> <!-- Aquí se aplica la clase form-container -->
+            <h2 class="text-center mb-5 text-gris text-3xl">Iniciar Sesión</h2>
+            <img src="https://github.com/Alejandra-Araque/Proyecto_gaes_copapa/blob/main/img/copapa.png?raw=true" alt="Logo" class="logo"> <!-- Asegúrate de poner la ruta correcta del logo -->
             <?php if ($login_error): ?>
                 <div class="bg-red-500 text-white p-3 rounded mb-4 text-center">
                     <?php echo htmlspecialchars($login_error); ?>
@@ -111,10 +116,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <label for="usuario" class="block mb-1">N° Identificación</label>
                     <input class="w-full h-10 rounded border-2 border-gray-400 p-2" type="text" id="usuario" name="usuario" required>
                 </div>
-                <div class="mb-4">
-                    <label for="password" class="block mb-1">Contraseña</label>
-                    <input class="w-full h-10 rounded border-2 border-gray-400 p-2" type="password" id="password" name="password" required>
+                   <div class="mb-4">
+                   <label for="password" class="block mb-1">Contraseña</label>
+                 <input class="w-full h-10 rounded border-2 border-gray-400 p-2" type="password" id="password" name="password" style="color: black; font-weight: bold;" required>
                 </div>
+
                 <button class="w-full h-12 rounded-md transition duration-300" type="submit">Iniciar Sesión</button>
             </form>
             <p class="text-center mt-4">¿No tienes una cuenta? <a class="text-cafe font-bold" href="login_registro.php">Regístrate aquí</a>.</p>
@@ -124,3 +130,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script src="js/bootstrap.js"></script>
 </body>
 </html>
+
+
+

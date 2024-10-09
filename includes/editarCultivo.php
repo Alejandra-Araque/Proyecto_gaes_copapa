@@ -72,10 +72,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php include "../includes/tailwind.php"; ?>
     <style>
         body {
-            background-image: url('/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/banner/9.png');
+            background-image: url('https://www.quimsaitw.com/wp-content/uploads/2023/08/mejorar-rendimiento-de-cultivos.jpeg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            min-height: 100vh; /* Añade esta línea */
+        }
+        .container {
+            background-color: rgba(139, 69, 19, 0.5); /* Color café transparente */
+            border-radius: 10px;
+            padding: 20px;
         }
         #imagenPreview {
             width: 300px;
@@ -87,8 +93,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body class="bg-gray-100">
 
-    <div class="w-full max-w-4xl bg-white rounded-lg shadow-md p-6 mx-auto mt-10">
-        <h2 class="text-center mb-5 text-gray-700 font-bold text-3xl">Editar Cultivo</h2>
+    <div class="w-full max-w-4xl container mx-auto mt-10">
+        <h2 class="text-center mb-5 text-white font-bold text-3xl">Editar Cultivo</h2>
+        <div class="flex justify-center mb-5">
+            <img src="https://github.com/Alejandra-Araque/Proyecto_gaes_copapa/blob/main/img/copapa.png?raw=true" alt="Logo COPAPA" class="w-24"> <!-- Cambia la ruta a tu logo -->
+        </div>
 
         <form action="editarCultivo.php?id=<?php echo $id; ?>" method="POST">
             <div class="grid grid-cols-2 gap-4">
@@ -142,10 +151,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="mt-6 text-center">
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Actualizar Cultivo</button>
+                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Actualizar Cultivo</button>
             </div>
         </form>
     </div>
+    
 </body>
 </html>
 
@@ -153,3 +163,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Cerrar la conexión
 $conexion->close();
 ?>
+

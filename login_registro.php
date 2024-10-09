@@ -91,12 +91,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registro'])) {
 
         /* Estilos para el formulario */
         .form-container {
-            background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente */
-            color: #333; /* Texto oscuro para contraste */
+            background-color: rgba(139, 69, 19, 0.5); /* Fondo café transparente */
+            color: #fff; /* Texto blanco para contraste */
+            padding: 20px;
+            border-radius: 10px;
         }
-        
-        input, select, button {
-            color: #333; /* Asegura que el texto dentro de los campos sea legible */
+
+        /* Asegura que el texto dentro de los campos sea negro */
+        input, select {
+            color: #000; /* Cambiado a negro */
+            background-color: rgba(255, 255, 255, 0.5); /* Fondo blanco semitransparente */
+        }
+
+        label, h2 {
+            font-weight: bold; /* Texto en negrita */
         }
 
         button {
@@ -107,63 +115,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registro'])) {
         button:hover {
             background-color: #1c86ee;
         }
+
+        img.logo {
+            display: block;
+            margin: 0 auto 15px;
+            width: 100px; /* Ajusta el tamaño según tu logo */
+        }
     </style>
     <script>
-        function validarPassword() {
-            const password = document.getElementById("password").value;
-            const verificarPassword = document.getElementById("verificarPassword").value;
-            const errorPassword = document.getElementById("errorPassword");
-
-            if (password !== verificarPassword) {
-                errorPassword.textContent = "Las contraseñas no coinciden.";
-                errorPassword.style.display = "block";
-                return false;
-            } else {
-                errorPassword.style.display = "none";
-                return true;
-            }
-        }
-
-        function mostrarModal(mensaje, tipo) {
-            const modal = document.getElementById("modal");
-            const modalMessage = document.getElementById("modal-message");
-
-            if (modal && modalMessage) {
-                modalMessage.textContent = mensaje;
-                modal.className = 'alert ' + tipo;
-                modal.style.display = 'block'; // Asegúrate de que el modal se muestre
-            }
-        }
-
-        function redirigirLogin() {
-            window.location.href = "login.php";
-        }
-
-        window.onload = function() {
-            const registroError = "<?php echo htmlspecialchars($registro_error); ?>";
-            const registroSuccess = "<?php echo htmlspecialchars($registro_success); ?>";
-
-            if (registroError) {
-                mostrarModal(registroError, 'alert-danger');
-            } else if (registroSuccess) {
-                mostrarModal(registroSuccess, 'alert-success');
-            }
-        }
+        // El resto de tu script...
     </script>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <!-- Contenedor Principal -->
-    <div class="w-full max-w-md bg-white rounded-lg shadow-md p-6">
-        <h2 class="text-center mb-5 text-gray-700 font-bold text-3xl">Registro</h2>
+    <div class="w-full max-w-md form-container shadow-md">
+        <h2 class="text-center mb-5 text-black font-bold text-3xl">Registro</h2>
+        <img src="https://github.com/Alejandra-Araque/Proyecto_gaes_copapa/blob/main/img/copapa.png?raw=true" alt="Logo" class="logo"> <!-- Reemplaza con la ruta de tu logo -->
         <form action="login_registro.php" method="post" onsubmit="return validarPassword()">
             <!-- Tipo Identificación -->
             <div class="mb-4">
                 <label for="tipoidentificacion" class="block mb-1">Tipo de Identificación</label>
                 <select class="w-full h-10 rounded border-2 border-gray-400" id="tipoidentificacion" name="tipoidentificacion" required>
-                    <option value="">Seleccione</option>
-                    <option value="CC">CC</option>
-                    <option value="CE">CE</option>
-                    <option value="TI">TI</option>
+                    <option value="" style="color: black;">Seleccione</option>
+                    <option value="CC" style="color: black;">CC</option>
+                    <option value="CE" style="color: black;">CE</option>
+                    <option value="TI" style="color: black;">TI</option>
                 </select>
             </div>
 
@@ -171,12 +147,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registro'])) {
             <div class="mb-4">
                 <label for="tipoUsuario" class="block mb-1">Tipo de Usuario</label>
                 <select class="w-full h-10 rounded border-2 border-gray-400" id="tipoUsuario" name="tipoUsuario" required>
-                    <option value="">Seleccione</option>
-                    <option value="Cliente">Cliente</option>
-                    <option value="Agricultor">Agricultor</option>
+                    <option value="" style="color: black;">Seleccione</option>
+                    <option value="Cliente" style="color: black;">Cliente</option>
+                    <option value="Agricultor" style="color: black;">Agricultor</option>
                 </select>
             </div>
-            
+
             <!-- Número de Identificación -->
             <div class="mb-4">
                 <label for="numidentificacion" class="block mb-1">Número de Identificación</label>
@@ -240,3 +216,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registro'])) {
     </div>
 </body>
 </html>
+
+
+
+

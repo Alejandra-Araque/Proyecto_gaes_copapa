@@ -1,87 +1,74 @@
+<?php 
+include($_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php");
+?>
+
+<!-- Footer -->
+<!-- Footer -->
 <footer class="footer">
     <div class="footer-container">
-        <div class="footer-logo">
-            <!-- <img class="logo" src="/copapa/img/copapa.png" alt="Logo COPAPA"> -->
-        </div>
-        <!-- <div class="footer-nav">
-            <ul class="nav-links">
-                <li><a class="nav-link" href="privacy.php">Política de Privacidad</a></li>
-            </ul>
-        </div> -->
         <div class="footer-social">
             <a class="social-icon" href="#" target="_blank">
-                <img src="/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/facebook.png" alt="Facebook">
+                <img src="https://img.freepik.com/psd-premium/icono-facebook-3d-iconos-redes-sociales-logotipos-estilo-moderno_535570-856.jpg" alt="Facebook" class="icon-size" />
             </a>
             <a class="social-icon" href="#" target="_blank">
-                <img src="/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/x.png" alt="Twitter">
+                <img src="https://img.freepik.com/fotos-premium/vector-ilustracion-icono-twitter_895118-5895.jpg" alt="Twitter" class="icon-size" />
             </a>
             <a class="social-icon" href="#" target="_blank">
-                <img src="/Proyecto_gaes_copapa/Proyecto_gaes_copapa/img/instagram.png" alt="Instagram">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkTHPEjT1SZ6C347YtE9HypRBvOakyfv-VEg&s" alt="Instagram" class="icon-size" />
             </a>
         </div>
         <a class="nav-link" href="privacy.php">Política de Privacidad</a>
         <p class="footer-text">&copy; <?php echo date("Y"); ?> COPAPA. Todos los derechos reservados.</p>
     </div>
-		<script
-			src="https://kit.fontawesome.com/81581fb069.js"
-			crossorigin="anonymous"
-
-		></script>
 </footer>
+
 
 <style>
     .footer {
-        position: relative;
-        padding: 20px 0;
+        position: fixed; /* El footer estará siempre en la parte inferior */
+        bottom: 0; /* Alineado al final de la ventana */
+        width: 100%; /* Ocupa todo el ancho de la página */
+        background-color: brown; /* Color café */
+        color: #fff; /* Texto en blanco */
+        padding: 10px 0; /* Pequeño padding para ajustarlo */
         text-align: center;
-        color: #fff; /* Texto en color blanco para mayor legibilidad */
-        background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente si quieres mejor contraste */
-        width: calc(100% - 250px); /* Restar el ancho del menú lateral */
-    margin-left: 250px; /* Mover el footer a la derecha del menú */
-    }
-
-    .footer::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        z-index: -1; /* Se asegura de que la imagen esté detrás del contenido */
+        z-index: 1000; /* Asegura que el footer esté sobre otros elementos */
     }
 
     .footer-container {
+        display: flex;
+        justify-content: space-between; /* Distribuye el contenido equitativamente */
+        align-items: center;
         max-width: 1200px;
         margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        padding: 0 15px; /* Espacio a los lados */
     }
 
     .footer-social {
-        margin-bottom: 15px;
+        display: flex;
+        gap: 10px; /* Espacio entre iconos */
     }
 
-    .social-icon img {
-        height: auto; /* Se mantiene el tamaño original de los íconos */
-        margin: 0 10px;
+    .icon-size {
+        width: 20px; /* Tamaño pequeño para los iconos */
+        height: 20px;
     }
 
     .nav-link {
-        color: #fff; /* Blanco para que sea legible sobre la imagen de fondo */
+        color: #f0e6d6; /* Beige claro */
         text-decoration: none;
-        margin-top: 10px;
+        font-size: 14px;
     }
 
     .nav-link:hover {
-        color: #f0e6d6; /* Color beige claro al pasar el cursor */
+        color: #fff; /* Efecto hover en blanco */
     }
 
     .footer-text {
-        margin-top: 10px;
-        font-size: 14px;
-        color: #fff; /* Asegura que el texto sea visible sobre la imagen */
+        font-size: 12px;
+        color: #f0e6d6; /* Color del copyright */
     }
 </style>
+<script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
+</body>
+</html>

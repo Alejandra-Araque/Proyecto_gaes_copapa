@@ -1,216 +1,229 @@
-<?php 
-include("../includes/header.php");
-?>
-  <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/header.css">
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
-		<title>COPAPA</title>
-		<link rel="stylesheet" href="styles.css" />
-	</head>
-	<body>
-		<header>
+<!DOCTYPE html>
+<html lang="es">
 
-        <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
-		<title>COPAPA</title>
-		<link rel="stylesheet" href="styles.css" />
-	</head>
-	<body>
-		<header>
-		</header>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COPAPA</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: rgba(101, 67, 33, 0.3);
+        /* Color café transparente */
+    }
 
-		<section class="banner">
-			<div class="content-banner">
-				<p>Papa Pastusa</p>
-				<h2>Excelente sabor y calidad<br /></h2>
-				<a href="#">Comprar ahora</a>
-			</div>
-		</section>
+    /* Estilos para los botones café transparente */
+    .btn-brown-transparent {
+        background-color: rgba(101, 67, 33, 0.5);
+        /* Color café transparente */
+        color: white;
+    }
 
-		<main class="main-content">
-			<section class="container container-features">
-				<div class="card-feature">
-					<i class="fa-solid fa-plane-up"></i>
-					<div class="feature-content">
-						<span>Rastrea tu pedido</span>
-						<p></p>
-					</div>
-				</div>
-				<div class="card-feature">
-					<i class="fa-solid fa-wallet"></i>
-					<div class="feature-content">
-						<span>Contrareembolso</span>
-						<p>100% garantía de devolución de dinero</p>
-					</div>
-				</div>
-				<div class="card-feature">
-					<i class="fa-solid fa-headset"></i>
-					<div class="feature-content">
-						<span>Servicio al cliente 24/7</span>
-						<p>LLámenos 24/7 al 123-456-7890</p>
-					</div>
-				</div>
-			</section>
+    /* Estilos de las secciones en fila */
+    .section-row {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 2rem 0;
+        flex-wrap: nowrap;
+        /* Asegura que los elementos estén en una fila */
+    }
 
-			<section class="container top-categories">
-				<h1 class="heading-1">Mejores Categorías</h1>
-				<div class="container-categories">
-					<div class="card-category category-Papas">
-						<p>Papas</p>
-						<span>Ver más</span>
-					</div>
-					<div class="card-category category-Frutas">
-						<p>Frutas</p>
-						<span>Ver más</span>
-					</div>
-					<div class="card-category category-Verduras">
-						<p>Verduras</p>
-						<span>Ver más</span>
-					</div>
-				</div>
-			</section>
+    .section-box {
+        width: 18%;
+        padding: 1rem;
+        background-size: cover;
+        background-position: center;
+        height: 20vh;
+        color: white;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 1.2rem;
+    }
 
-			<section class="container top-products">
-				<h1 class="heading-1">Mejores Productos</h1>
-				<div class="container-options">
-					<span class="active">Destacados</span>
-					<span>Más recientes</span>
-					<span>Mejores Vendidos</span>
-				</div>
+    .section-box h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
 
-				<div class="container-products">
-					<!-- Producto 1 -->
-					<div class="card-product">
-						<div class="container-img">
-							<img src="../img/Zanahoria.jpg" alt="Zanahoria" />
-							<span class="Descuento">2%</span>
-							<div class="button-group">
-								<span>
-									<i class="fa-regular fa-eye"></i>
-								</span>
-								<span>
-									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-card-product">
-							<h3>Zanahoria</h3>
-							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
-							</span>
-							<p class="precio">$2.000  <span>Libra</span></p>
-						</div>
-					</div>
-					<!-- Producto 2 -->
-					<div class="card-product">
-						<div class="container-img">
-							<img
-								src="../img/Manzana.jpg"
-								alt="Manzana Roja "
-							/>
-							<span class="Descuento"> 4%</span>
-							<div class="button-group">
-								<span>
-									<i class="fa-regular fa-eye"></i>
-								</span>
-								<span>
-									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-card-product">
-							<h3>Manzana Roja</h3>
-							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
-							</span>
-							<p class="price">$2.200<span>Por unidad</span></p>
-						</div>
-					</div>
-					<div class="card-product">
-						<div class="container-img">
-							<img
-								src="../img/Papa-perla-Negra_2.jpg"
-								alt="Papa Perla Negra"
-							/>
-							<span class="Descuento"> 10%</span>
-							<div class="button-group">
-								<span>
-									<i class="fa-regular fa-eye"></i>
-								</span>
-								<span>
-									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-card-product">
-							<h3>Papa Perla Negra</h3>
-							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
-							</span>
-							<p class="price">$4.700 x Kilo</p>
-						</div>
-					</div>
-					<!--  -->
-					<div class="card-product">
-						<div class="container-img">
-							<img 
-							src="../img/Mazorca_1.jpg" 
-							alt="Mazorca" 
-							/>
-							<span class="Descuento"> 5%</span>
-							<div class="button-group">
-								<span>
-									<i class="fa-regular fa-eye"></i>
-								</span>
-								<span>
-									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-card-product">
-							<h3>Mazorca</h3>
-							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
-							</span>
-							<p class="Precio">$5.500 x 500gr</p>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
+    /* Estilo del título de productos con fondo café */
+    .productos-title {
+        background-color: rgba(101, 67, 33, 0.7);
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        margin: 2rem 0;
+        font-size: 2rem;
+        border-radius: 8px;
+    }
 
-		<?php 
-      include("../includes/footer.php");
-       ?>
-	</body>
+    /* Ajustes de la lista de productos */
+    .main-content {
+        padding-top: 0;
+    }
+
+    .card-product {
+        background-color: rgba(101, 67, 33, 0.5);
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="bg-beige shadow">
+        <div class="container mx-auto p-2 flex justify-between items-center">
+            <a href="index.php">
+                <img src="https://github.com/Alejandra-Araque/Proyecto_gaes_copapa/blob/main/img/copapa.png?raw=true"
+                    alt="Logo COPAPA" class="h-24 md:h-28" />
+            </a>
+            <nav class="flex space-x-4">
+                <a href="../login_registro.php" class="btn-brown-transparent py-2 px-4 rounded transition duration-300 text-lg">Regístrate</a>
+                <a href="../login.php" class="btn-brown-transparent py-2 px-4 rounded transition duration-300 text-lg">Iniciar Sesión</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner h-50 flex flex-col justify-center items-center"
+        style="background-image: url('https://images.unsplash.com/photo-1719253293689-40e204db520d?q=80&w=1870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center;">
+        <div class="content-banner h-full flex flex-col justify-center items-center bg-black bg-opacity-50">
+            <p class="text-white text-xl">COPAPA</p>
+            <h2 class="text-white text-4xl font-bold">Excelente sabor y calidad</h2>
+            <a href="productos.php" class="btn-brown-transparent py-2 px-4 rounded">Comprar ahora</a>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Nosotros, Servicios, Contacto, Videos en una fila centrada -->
+    <section class="section-row container mx-auto">
+        <!-- Cuadro Sobre Nosotros -->
+        <div class="section-box"
+            style="background-image: url('https://img.freepik.com/fotos-premium/agricultor-aplicando-tecnicas-agricultura-organica-campo-generado-ia_903942-16222.jpg?w=1380');">
+            <h2>Sobre Nosotros</h2>
+            <p>Nos dedicamos a ofrecer productos frescos y de la mejor calidad directamente desde el campo.</p>
+            <a href="sobre_nosotros.php" class="btn-brown-transparent py-2 px-4 rounded mt-2">Conócenos más</a>
+        </div>
+
+        <!-- Cuadro Nuestros Servicios -->
+        <div class="section-box"
+            style="background-image: url('https://img.freepik.com/foto-gratis/personas-que-llevan-suministros-vecinos_23-2149139737.jpg?t=st=1728313170~exp=1728316770~hmac=39c0cc13e57c4c6a4839e44205d6b0c714a6ae889c9805045ebaa329438b9906&w=996');">
+            <h2>Nuestros Servicios</h2>
+            <ul>
+                <li>Venta de productos frescos</li>
+                <li>Entrega a domicilio</li>
+                <li>Servicio al cliente</li>
+                <li>Ofertas especiales</li>
+            </ul>
+            <a href="servicios.php" class="btn-brown-transparent py-2 px-4 rounded mt-2">Ver Servicios</a>
+        </div>
+
+        <!-- Cuadro Contacto -->
+        <div class="section-box"
+            style="background-image: url('https://www.minagricultura.gov.co/noticias/PublishingImages/agro-tecnologia-980.jpg');">
+            <h2>Contacto</h2>
+            <p>Correo: <a href="mailto:contacto@copapa.com" class="text-white-500">contacto@copapa.com</a></p>
+            <p>Teléfono: +57 123 456 7890</p>
+            <a href="contacto.php" class="btn-brown-transparent py-2 px-4 rounded mt-2">Contáctanos</a>
+        </div>
+
+        <!-- Cuadro Video 1: Cultivo -->
+        <div class="section-box">
+            <h2>Cómo Cultivar</h2>
+            <p>Video 1: Guía práctica de cómo cultivar papa en casa.</p>
+            <iframe src="https://www.youtube.com/embed/7BvTFWSZgTs" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <!-- Cuadro Video 2: Cultivo -->
+        <div class="section-box">
+            <h2>Cómo Cultivar</h2>
+            <p>Video 2: Consejos para un cultivo sostenible y eficiente.</p>
+            <iframe src="https://www.youtube.com/embed/vWApHtc5aGY" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- Título de productos -->
+    <div class="productos-title">PRODUCTOS</div>
+
+    <!-- Productos -->
+    <main class="main-content p-4">
+        <section class="container-products grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Producto 1 -->
+            <div class="card-product bg-brown-500 bg-opacity-50 shadow-lg rounded-lg overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1445282768818-728615cc910a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Zanahoria" class="w-full h-50 object-cover" />
+                <div class="content-card-product p-4">
+                    <h3 class="text-xl font-bold">Zanahoria</h3>
+                </div>
+            </div>
+            <!-- Producto 2 -->
+            <div class="card-product bg-brown-500 bg-opacity-70 shadow-lg rounded-lg overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1598553921123-179ea4997fb6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Manzana Roja" class="w-full h-50 object-cover" />
+                <div class="content-card-product p-4">
+                    <h3 class="text-xl font-bold">Manzana Roja</h3>
+                    <span class="add-cart text-blue-500">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                    </span>
+                </div>
+            </div>
+            <!-- Producto 3 -->
+            <div class="card-product bg-brown-500 bg-opacity-70 shadow-lg rounded-lg overflow-hidden">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROqiEQxwbLVuw8zXKgHvS-F9kiuxkkyvaE1w&s"
+                    alt="Papa Perla Negra" class="w-full h-50 object-cover" />
+                <div class="content-card-product p-4">
+                    <h3 class="text-xl font-bold">Papa Perla Negra</h3>
+                    <span class="add-cart text-blue-500">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                    </span>
+                </div>
+            </div>
+            <!-- Producto 4 -->
+            <div class="card-product bg-brown-500 bg-opacity-70 shadow-lg rounded-lg overflow-hidden">
+                <img src="https://plus.unsplash.com/premium_photo-1667047164703-15ffa198f8d4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3wxfHx8ZW58MHx8fHx8"
+                    alt="Mazorca" class="w-full h-50 object-cover" />
+                <div class="content-card-product p-4">
+                    <h3 class="text-xl font-bold">Mazorca</h3>
+                    <span class="add-cart text-blue-500">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                    </span>
+                </div>
+            </div>
+            <!-- Producto 5: Arveja Verde -->
+            <div class="card-product bg-brown-500 bg-opacity-70 shadow-lg rounded-lg overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1591279222235-27c75538636d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Arveja Verde" class="w-full h-50 object-cover" />
+                <div class="content-card-product p-4">
+                    <h3 class="text-xl font-bold">Arveja Verde</h3>
+                </div>
+            </div>
+            <!-- Producto 6: Regístrate -->
+            <div class="card-product bg-white shadow-lg rounded-lg overflow-hidden flex items-center justify-center text-center"
+                style="background-image: url('https://plus.unsplash.com/premium_photo-1722899516572-409bf979e5d6?q=80&w=1958&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center; height: 50vh;">
+                <div class="p-4 bg-black bg-opacity-50 flex flex-col justify-center items-center h-full">
+                    <h3 class="text-xl font-bold text-white">¡Regístrate, conoce todos nuestros productos y no te
+                        pierdas de nuestras ofertas!</h3>
+                    <a href="iniciar_sesion.php" class="btn-brown-transparent py-2 px-4 rounded mt-2">¡Únete!</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 COPAPA. Todos los derechos reservados.</p>
+        </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+
 </html>
-
-   
-
-   
