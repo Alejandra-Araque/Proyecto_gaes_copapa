@@ -114,11 +114,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <form action="login.php" method="post">
                 <div class="mb-4">
                     <label for="usuario" class="block mb-1">N° Identificación</label>
-                    <input class="w-full h-10 rounded border-2 border-gray-400 p-2" type="text" id="usuario" name="usuario" required>
+                    <input class="w-full h-10 text-black rounded border-2 border-gray-400 p-2" type="text" id="usuario" name="usuario" required>
                 </div>
                    <div class="mb-4">
                    <label for="password" class="block mb-1">Contraseña</label>
-                 <input class="w-full h-10 rounded border-2 border-gray-400 p-2" type="password" id="password" name="password" style="color: black; font-weight: bold;" required>
+                 <input class="w-full h-10 text-black rounded border-2 border-gray-400 p-2" type="password" id="password" name="password" style="color: black; font-weight: bold;" required>
                 </div>
 
                 <button class="w-full h-12 rounded-md transition duration-300" type="submit">Iniciar Sesión</button>
